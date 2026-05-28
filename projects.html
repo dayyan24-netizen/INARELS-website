@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="INARELS Research Projects — Browse active and ongoing research projects spanning history education, language policy, civic engagement, and social development across Africa and the diaspora." />
+  <title>Research Projects – INARELS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Sans+3:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/about.css" />
+  <link rel="stylesheet" href="../css/projects.css" />
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <header class="site-header scrolled" id="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo-block">
+        <span class="logo-inarels">INARELS</span>
+        <span class="logo-tagline">Research Network</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav" id="main-nav">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html" class="active">Projects</a></li>
+          <li><a href="researchers.html">Researchers</a></li>
+          <li><a href="portal.html" class="nav-portal">Member Portal</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ═══ PAGE HERO ═══ -->
+  <section class="page-hero projects-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <span class="breadcrumb">Home &rsaquo; Projects</span>
+        <h1>Research <em>Projects</em></h1>
+        <p class="page-hero-sub">Collaborative action research spanning education, language, history, and social change</p>
+        <div class="projects-hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-num">4</span>
+            <span class="hero-stat-label">Active Projects</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-num">4+</span>
+            <span class="hero-stat-label">Countries</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-num">18+</span>
+            <span class="hero-stat-label">Publications</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-num">50+</span>
+            <span class="hero-stat-label">Collaborators</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ INTRO + FILTER BAR ═══ -->
+  <section class="projects-controls-section">
+    <div class="container">
+      <div class="projects-controls-inner">
+
+        <p class="projects-intro-text">INARELS sustains several lines of research programs simultaneously under the leadership of independent teams of experts who work collaboratively with relevant community partners, schools, and policy makers. Projects span educational issues relating to language, culture, politics, economics, history, and the environment.</p>
+
+        <div class="projects-filter-bar">
+          <div class="filter-tabs" id="filter-tabs" role="tablist">
+            <button class="ftab active" data-filter="all" role="tab" aria-selected="true">
+              All Projects
+              <span class="ftab-count" id="count-all">4</span>
+            </button>
+            <button class="ftab" data-filter="education" role="tab" aria-selected="false">
+              Education
+              <span class="ftab-count" id="count-education">3</span>
+            </button>
+            <button class="ftab" data-filter="language" role="tab" aria-selected="false">
+              Language
+              <span class="ftab-count" id="count-language">3</span>
+            </button>
+            <button class="ftab" data-filter="history" role="tab" aria-selected="false">
+              History
+              <span class="ftab-count" id="count-history">2</span>
+            </button>
+            <button class="ftab" data-filter="society" role="tab" aria-selected="false">
+              Society
+              <span class="ftab-count" id="count-society">3</span>
+            </button>
+            <button class="ftab" data-filter="diaspora" role="tab" aria-selected="false">
+              Diaspora
+              <span class="ftab-count" id="count-diaspora">1</span>
+            </button>
+          </div>
+
+          <div class="filter-view-toggle">
+            <button class="view-btn active" id="view-grid" aria-label="Grid view" title="Grid view">
+              <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><rect x="2" y="2" width="7" height="7" rx="1"/><rect x="11" y="2" width="7" height="7" rx="1"/><rect x="2" y="11" width="7" height="7" rx="1"/><rect x="11" y="11" width="7" height="7" rx="1"/></svg>
+            </button>
+            <button class="view-btn" id="view-list" aria-label="List view" title="List view">
+              <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><rect x="2" y="3" width="16" height="3" rx="1"/><rect x="2" y="8.5" width="16" height="3" rx="1"/><rect x="2" y="14" width="16" height="3" rx="1"/></svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROJECTS GRID ═══ -->
+  <section class="projects-directory-section">
+    <div class="container">
+
+      <div class="no-results" id="no-results" style="display:none;">
+        <p>No projects match the selected filter. <button class="reset-filter-btn" id="reset-filter">Clear filter</button></p>
+      </div>
+
+      <div class="proj-grid" id="proj-grid">
+
+        <!-- ── Project 1: Historicizing History Education ── -->
+        <article class="proj-card" id="proj-historicizing"
+                 data-themes="education history"
+                 data-regions="nigeria ghana kenya uganda"
+                 data-status="active">
+
+          <div class="proj-card-visual proj-visual-1">
+            <div class="proj-visual-overlay"></div>
+            <div class="proj-card-top-row">
+              <span class="proj-status-tag status-active">Active</span>
+              <span class="proj-region-tag">West &amp; East Africa</span>
+            </div>
+            <div class="proj-theme-tags">
+              <span class="proj-theme-tag">Education</span>
+              <span class="proj-theme-tag">History</span>
+            </div>
+          </div>
+
+          <div class="proj-card-body">
+            <div class="proj-card-meta-row">
+              <span class="proj-lead-label">Lead Researcher</span>
+              <span class="proj-lead-name">Desmond Ikenna Odugu, Ph.D.</span>
+            </div>
+
+            <h2 class="proj-title">Historicizing History Education</h2>
+
+            <p class="proj-summary">Education systems in several African countries have either reduced or eliminated history curriculum at secondary levels. This comparative inquiry examines the forces responsible for disinvestment in history education in Nigeria, Ghana, Kenya, and Uganda — engaging academic experts, teachers, parents, community leaders, and policymakers.</p>
+
+            <div class="proj-detail-row">
+              <div class="proj-detail-item">
+                <span class="proj-detail-label">Countries</span>
+                <span class="proj-detail-value">Nigeria, Ghana, Kenya, Uganda</span>
+              </div>
+              <div class="proj-detail-item">
+                <span class="proj-detail-label">Discipline</span>
+                <span class="proj-detail-value">Comparative Education, History</span>
+              </div>
+            </div>
+
+            <div class="proj-availability-row">
+              <span class="avail-badge avail-pub">Publications</span>
+              <span class="avail-badge avail-data">Data Access</span>
+              <span class="avail-badge avail-contact">Contact</span>
+            </div>
+
+            <div class="proj-card-footer">
+              <a href="project-historicizing-history-education.html" class="btn-proj-view">
+                View Full Project
+                <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><path d="M7 5l5 5-5 5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="project-historicizing-history-education.html#data-access" class="btn-proj-data">
+                <svg viewBox="0 0 20 20" fill="none" width="14" height="14"><rect x="3" y="7" width="14" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M7 7V5a3 3 0 016 0v2" stroke="currentColor" stroke-width="1.5"/></svg>
+                Data Access
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ── Project 2: Language, Historical Literacies and Civic Engagement ── -->
+        <article class="proj-card" id="proj-literacies"
+                 data-themes="language history society"
+                 data-regions="nigeria ghana kenya uganda tanzania botswana"
+                 data-status="active">
+
+          <div class="proj-card-visual proj-visual-2">
+            <div class="proj-visual-overlay"></div>
+            <div class="proj-card-top-row">
+              <span class="proj-status-tag status-active">Active</span>
+              <span class="proj-region-tag">Pan-African</span>
+            </div>
+            <div class="proj-theme-tags">
+              <span class="proj-theme-tag">Language</span>
+              <span class="proj-theme-tag">History</span>
+              <span class="proj-theme-tag">Society</span>
+            </div>
+          </div>
+
+          <div class="proj-card-body">
+            <div class="proj-card-meta-row">
+              <span class="proj-lead-label">Lead Researcher</span>
+              <span class="proj-lead-name">Desmond Ikenna Odugu, Ph.D.</span>
+            </div>
+
+            <h2 class="proj-title">Language, Historical Literacies and Civic Engagement</h2>
+
+            <p class="proj-summary">A large-scale, cross-cultural comparative program investigating the intersection of language practices, historical literacies, and civic engagement in multilingual African societies. Re-conceptualizes social development in terms of individual attitudes to civic engagement and explores social identity as a mediating variable.</p>
+
+            <div class="proj-detail-row">
+              <div class="proj-detail-item">
+                <span class="proj-detail-label">Scope</span>
+                <span class="proj-detail-value">Multilingual African societies</span>
+              </div>
+              <div class="proj-detail-item">
+                <span class="proj-detail-label">Discipline</span>
+                <span class="proj-detail-value">Sociolinguistics, Civic Studies</span>
+              </div>
+            </div>
+
+            <div class="proj-availability-row">
+              <span class="avail-badge avail-pub">Publications</span>
+              <span class="avail-badge avail-data">Data Access</span>
+              <span class="avail-badge avail-mem">Member Access</span>
+            </div>
+
+            <div class="proj-card-footer">
+              <a href="project-language-historical-literacies.html" class="btn-proj-view">
+                View Full Project
+                <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><path d="M7 5l5 5-5 5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="project-language-historical-literacies.html#data-access" class="btn-proj-data">
+                <svg viewBox="0 0 20 20" fill="none" width="14" height="14"><rect x="3" y="7" width="14" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M7 7V5a3 3 0 016 0v2" stroke="currentColor" stroke-width="1.5"/></svg>
+                Data Access
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ── Project 3: AGIRD ── -->
+        <article class="proj-card" id="proj-agird"
+                 data-themes="education society diaspora"
+                 data-regions="usa diaspora"
+                 data-status="active">
+
+          <div class="proj-card-visual proj-visual-3">
+            <div class="proj-visual-overlay"></div>
+            <div class="proj-card-top-row">
+              <span class="proj-status-tag status-active">Active</span>
+              <span class="proj-region-tag">USA / Diaspora</span>
+            </div>
+            <div class="proj-theme-tags">
+              <span class="proj-theme-tag">Education</span>
+              <span class="proj-theme-tag">Society</span>
+              <span class="proj-theme-tag">Diaspora</span>
+            </div>
+          </div>
+
+          <div class="proj-card-body">
+            <div class="proj-card-meta-row">
+              <span class="proj-lead-label">Lead Researcher</span>
+              <span class="proj-lead-name">Desmond Ikenna Odugu, Ph.D.</span>
+            </div>
+
+            <h2 class="proj-title">Achievement Gap and Intra-racial Dynamics <span class="proj-acronym">(AGIRD)</span></h2>
+
+            <p class="proj-summary">Builds on extensive research on the educational experiences of African American students in the United States — including disaggregated data on immigrant and non-immigrant Black students. Explores immigration trends, socialization patterns, and academic achievement, with initial findings suggesting historical literacies may account for sub-cultural dynamics.</p>
+
+            <div class="proj-detail-row">
+              <div class="proj-detail-item">
+                <span class="proj-detail-label">Region</span>
+                <span class="proj-detail-value">Midwest USA (initial phase)</span>
+              </div>
+              <div class="proj-detail-item">
+                <span class="proj-detail-label">Discipline</span>
+                <span class="proj-detail-value">Education, Sociology</span>
+              </div>
+            </div>
+
+            <div class="proj-availability-row">
+              <span class="avail-badge avail-pub">Publications</span>
+              <span class="avail-badge avail-mem">Member Access</span>
+            </div>
+
+            <div class="proj-card-footer">
+              <a href="project-agird.html" class="btn-proj-view">
+                View Full Project
+                <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><path d="M7 5l5 5-5 5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="project-agird.html#data-access" class="btn-proj-data">
+                <svg viewBox="0 0 20 20" fill="none" width="14" height="14"><rect x="3" y="7" width="14" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M7 7V5a3 3 0 016 0v2" stroke="currentColor" stroke-width="1.5"/></svg>
+                Data Access
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ── Project 4: Language, Education, and Development ── -->
+        <article class="proj-card" id="proj-led"
+                 data-themes="language education society"
+                 data-regions="nigeria ghana kenya tanzania botswana uganda"
+                 data-status="ongoing">
+
+          <div class="proj-card-visual proj-visual-4">
+            <div class="proj-visual-overlay"></div>
+            <div class="proj-card-top-row">
+              <span class="proj-status-tag status-ongoing">Dissemination Phase</span>
+              <span class="proj-region-tag">Africa-wide</span>
+            </div>
+            <div class="proj-theme-tags">
+              <span class="proj-theme-tag">Language</span>
+              <span class="proj-theme-tag">Education</span>
+              <span class="proj-theme-tag">Society</span>
+            </div>
+          </div>
+
+          <div class="proj-card-body">
+            <div class="proj-card-meta-row">
+              <span class="proj-lead-label">Lead Researcher</span>
+              <span class="proj-lead-name">Desmond Ikenna Odugu, Ph.D.</span>
+            </div>
+
+            <h2 class="proj-title">Language, Education, and Development</h2>
+
+            <p class="proj-summary">A decade of fieldwork on the imbrications of language, education, and development in Africa has produced extensive empirical evidence of language's significance to educational and social change processes. INARELS researchers are now developing dissemination plans including publication, conferences, and community outreach.</p>
+
+            <div class="proj-detail-row">
+              <div class="proj-detail-item">
+                <span class="proj-detail-label">Scope</span>
+                <span class="proj-detail-value">Africa-wide fieldwork</span>
+              </div>
+              <div class="proj-detail-item">
+                <span class="proj-detail-label">Phase</span>
+                <span class="proj-detail-value">Dissemination &amp; Publication</span>
+              </div>
+            </div>
+
+            <div class="proj-availability-row">
+              <span class="avail-badge avail-pub">Publications</span>
+              <span class="avail-badge avail-data">Data Access</span>
+              <span class="avail-badge avail-img">Field Images</span>
+              <span class="avail-badge avail-mem">Member Access</span>
+            </div>
+
+            <div class="proj-card-footer">
+              <a href="project-language-education-development.html" class="btn-proj-view">
+                View Full Project
+                <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><path d="M7 5l5 5-5 5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="project-language-education-development.html#data-access" class="btn-proj-data">
+                <svg viewBox="0 0 20 20" fill="none" width="14" height="14"><rect x="3" y="7" width="14" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M7 7V5a3 3 0 016 0v2" stroke="currentColor" stroke-width="1.5"/></svg>
+                Data Access
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /.proj-grid -->
+    </div>
+  </section>
+
+  <!-- ═══ WORLD MAP SECTION ═══ -->
+  <section class="projects-map-section">
+    <div class="container">
+      <div class="projects-map-inner">
+
+        <div class="map-section-header">
+          <span class="section-kicker">Geographic Reach</span>
+          <h2>Where INARELS Research Takes Place</h2>
+          <p>Projects are grounded in specific communities and research sites. The map below reflects the current geographic footprint of INARELS — from West African classrooms to East African universities to the North American diaspora.</p>
+        </div>
+
+        <div class="world-map-container">
+          <!-- SVG World Map — simplified outline with project markers -->
+          <svg class="world-map-svg" viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" aria-label="World map showing INARELS research locations">
+
+            <!-- Africa outline -->
+            <path class="continent africa"
+              d="M430 130 L445 118 L462 115 L478 120 L492 130 L500 148 L505 165 L508 182
+                 L512 200 L515 220 L516 240 L514 258 L510 275 L502 292 L492 308 L480 322
+                 L468 334 L455 342 L442 348 L430 352 L418 348 L406 340 L395 328 L386 314
+                 L379 298 L374 280 L372 262 L372 244 L374 226 L378 208 L384 192 L391 177
+                 L398 163 L406 150 L416 138 Z"
+              stroke="rgba(201,146,42,0.5)" stroke-width="1.5" fill="rgba(201,146,42,0.08)"/>
+
+            <!-- North America outline (simplified) -->
+            <path class="continent namerica"
+              d="M80 80 L140 70 L190 80 L220 100 L235 125 L240 155 L235 180 L225 200
+                 L210 215 L195 228 L180 235 L165 240 L150 238 L135 232 L118 220 L100 205
+                 L85 188 L74 168 L68 148 L68 128 L72 108 Z"
+              stroke="rgba(255,255,255,0.12)" stroke-width="1" fill="rgba(255,255,255,0.04)"/>
+
+            <!-- Europe outline (simplified) -->
+            <path class="continent europe"
+              d="M370 68 L395 62 L415 65 L428 75 L432 88 L428 100 L418 108 L405 112
+                 L390 110 L378 104 L368 95 L364 84 Z"
+              stroke="rgba(255,255,255,0.12)" stroke-width="1" fill="rgba(255,255,255,0.04)"/>
+
+            <!-- Asia outline (simplified) -->
+            <path class="continent asia"
+              d="M530 70 L600 55 L680 60 L740 75 L780 95 L800 115 L795 140 L775 158
+                 L745 168 L710 172 L675 168 L645 158 L615 145 L590 132 L565 118 L545 104
+                 L530 90 Z"
+              stroke="rgba(255,255,255,0.12)" stroke-width="1" fill="rgba(255,255,255,0.04)"/>
+
+            <!-- South America (simplified) -->
+            <path class="continent samerica"
+              d="M195 270 L220 260 L240 268 L252 285 L256 305 L252 328 L240 348 L224 362
+                 L208 368 L192 364 L178 352 L168 335 L164 315 L166 295 L174 278 Z"
+              stroke="rgba(255,255,255,0.12)" stroke-width="1" fill="rgba(255,255,255,0.04)"/>
+
+            <!-- Australia (simplified) -->
+            <path class="continent australia"
+              d="M710 300 L745 290 L775 295 L795 312 L800 332 L790 350 L770 360
+                 L748 360 L728 352 L714 338 L708 318 Z"
+              stroke="rgba(255,255,255,0.12)" stroke-width="1" fill="rgba(255,255,255,0.04)"/>
+
+            <!-- ── Project Markers ── -->
+
+            <!-- Nigeria (Projects 1, 2, 3, 4) -->
+            <g class="map-marker" data-project="Nigeria — Projects 1, 2, 4">
+              <circle cx="445" cy="230" r="10" fill="rgba(201,146,42,0.2)" class="pulse-ring"/>
+              <circle cx="445" cy="230" r="6" fill="#C9922A"/>
+              <circle cx="445" cy="230" r="3" fill="white"/>
+            </g>
+
+            <!-- Ghana (Projects 1, 2, 4) -->
+            <g class="map-marker" data-project="Ghana — Projects 1, 2, 4">
+              <circle cx="426" cy="225" r="8" fill="rgba(201,146,42,0.15)" class="pulse-ring"/>
+              <circle cx="426" cy="225" r="5" fill="#C9922A"/>
+              <circle cx="426" cy="225" r="2.5" fill="white"/>
+            </g>
+
+            <!-- Kenya (Projects 1, 2) -->
+            <g class="map-marker" data-project="Kenya — Projects 1, 2">
+              <circle cx="482" cy="240" r="8" fill="rgba(201,146,42,0.15)" class="pulse-ring"/>
+              <circle cx="482" cy="240" r="5" fill="#C9922A"/>
+              <circle cx="482" cy="240" r="2.5" fill="white"/>
+            </g>
+
+            <!-- Uganda (Project 1) -->
+            <g class="map-marker" data-project="Uganda — Project 1">
+              <circle cx="470" cy="232" r="6" fill="rgba(201,146,42,0.12)" class="pulse-ring"/>
+              <circle cx="470" cy="232" r="4" fill="#dba94a"/>
+              <circle cx="470" cy="232" r="2" fill="white"/>
+            </g>
+
+            <!-- Tanzania (Project 2) -->
+            <g class="map-marker" data-project="Tanzania — Project 2">
+              <circle cx="478" cy="258" r="7" fill="rgba(201,146,42,0.12)" class="pulse-ring"/>
+              <circle cx="478" cy="258" r="4" fill="#C9922A"/>
+              <circle cx="478" cy="258" r="2" fill="white"/>
+            </g>
+
+            <!-- Botswana (Project 2) -->
+            <g class="map-marker" data-project="Botswana — Projects 2, 4">
+              <circle cx="460" cy="298" r="6" fill="rgba(201,146,42,0.12)" class="pulse-ring"/>
+              <circle cx="460" cy="298" r="4" fill="#dba94a"/>
+              <circle cx="460" cy="298" r="2" fill="white"/>
+            </g>
+
+            <!-- USA / Midwest (AGIRD) -->
+            <g class="map-marker" data-project="USA — AGIRD (Project 3)">
+              <circle cx="148" cy="155" r="8" fill="rgba(201,146,42,0.15)" class="pulse-ring"/>
+              <circle cx="148" cy="155" r="5" fill="#C9922A"/>
+              <circle cx="148" cy="155" r="2.5" fill="white"/>
+            </g>
+
+            <!-- Lake Forest, IL — INARELS HQ -->
+            <g class="map-marker hq-marker" data-project="Lake Forest, IL — INARELS HQ">
+              <circle cx="155" cy="148" r="12" fill="rgba(201,146,42,0.15)" class="pulse-ring-hq"/>
+              <circle cx="155" cy="148" r="7" fill="#C9922A" stroke="white" stroke-width="1.5"/>
+              <circle cx="155" cy="148" r="3" fill="white"/>
+            </g>
+
+            <!-- Connection lines — Africa nodes -->
+            <line x1="445" y1="230" x2="426" y2="225" stroke="rgba(201,146,42,0.3)" stroke-width="1" stroke-dasharray="3,3"/>
+            <line x1="445" y1="230" x2="482" y2="240" stroke="rgba(201,146,42,0.3)" stroke-width="1" stroke-dasharray="3,3"/>
+            <line x1="445" y1="230" x2="470" y2="232" stroke="rgba(201,146,42,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+            <line x1="445" y1="230" x2="478" y2="258" stroke="rgba(201,146,42,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+            <line x1="445" y1="230" x2="460" y2="298" stroke="rgba(201,146,42,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+            <!-- USA to Africa arc (gentle curve) -->
+            <path d="M155 148 Q 300 80 445 230" stroke="rgba(201,146,42,0.18)" stroke-width="1" stroke-dasharray="4,4" fill="none"/>
+
+          </svg>
+
+          <!-- Map legend -->
+          <div class="map-legend">
+            <div class="legend-item">
+              <span class="legend-dot legend-dot-primary"></span>
+              <span>Major research site</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot legend-dot-secondary"></span>
+              <span>Contributing site</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot legend-dot-hq"></span>
+              <span>INARELS HQ (Lake Forest, IL)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Country list -->
+        <div class="map-country-list">
+          <div class="country-item">
+            <span class="country-dot"></span>
+            <div>
+              <strong>Nigeria</strong>
+              <span>Projects 1, 2, 4</span>
+            </div>
+          </div>
+          <div class="country-item">
+            <span class="country-dot"></span>
+            <div>
+              <strong>Ghana</strong>
+              <span>Projects 1, 2, 4</span>
+            </div>
+          </div>
+          <div class="country-item">
+            <span class="country-dot"></span>
+            <div>
+              <strong>Kenya</strong>
+              <span>Projects 1, 2</span>
+            </div>
+          </div>
+          <div class="country-item">
+            <span class="country-dot"></span>
+            <div>
+              <strong>Uganda</strong>
+              <span>Project 1</span>
+            </div>
+          </div>
+          <div class="country-item">
+            <span class="country-dot"></span>
+            <div>
+              <strong>Tanzania</strong>
+              <span>Project 2</span>
+            </div>
+          </div>
+          <div class="country-item">
+            <span class="country-dot"></span>
+            <div>
+              <strong>Botswana</strong>
+              <span>Projects 2, 4</span>
+            </div>
+          </div>
+          <div class="country-item">
+            <span class="country-dot"></span>
+            <div>
+              <strong>United States</strong>
+              <span>Project 3 (AGIRD)</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DATA SHARING POLICY NOTE ═══ -->
+  <section class="data-policy-band">
+    <div class="container">
+      <div class="data-policy-inner">
+        <div class="policy-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40" aria-hidden="true">
+            <rect x="6" y="14" width="28" height="22" rx="3" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M13 14v-3a7 7 0 0114 0v3" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="20" cy="25" r="3" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M20 28v4" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="policy-text">
+          <h3>Data Access &amp; Sharing Policy</h3>
+          <p>Access to project-specific data is managed on a project-by-project basis, determined by each lead researcher in consultation with all collaborators. Web registration and notification of the INARELS Leadership Team are required to access data. Full data sets may be available for teaching purposes with an electronic agreement. <a href="portal.html" class="policy-link">Learn more about data access &rarr;</a></p>
+        </div>
+        <a href="portal.html" class="btn btn-gold">Request Data Access</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">INARELS</span>
+        <p>International Network for Action Research on Education, Language and Society</p>
+        <p class="footer-disclaimer">INARELS is a research network platform designed to support international collaboration, project visibility, and controlled data sharing across education, language, and society. Access to project data may be limited by membership, approval status, project ownership, ethical requirements, or researcher permission.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="researchers.html">Researchers</a></li>
+          <li><a href="portal.html">Member Portal</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Projects</h4>
+        <ul>
+          <li><a href="project-historicizing-history-education.html">Historicizing History Education</a></li>
+          <li><a href="project-language-historical-literacies.html">Language, Historical Literacies &amp; Civic Engagement</a></li>
+          <li><a href="project-agird.html">Achievement Gap &amp; Intra-racial Dynamics</a></li>
+          <li><a href="project-language-education-development.html">Language, Education, and Development</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>Lake Forest College<br/>555 North Sheridan Road<br/>Lake Forest, IL 60045</p>
+        <a href="mailto:INARELSresearch@dr.com" class="footer-email">INARELSresearch@dr.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 INARELS – International Network for Action Research on Education, Language and Society. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/projects.js"></script>
+</body>
+</html>
