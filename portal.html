@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="INARELS Member Portal — Secure collaboration space for approved network members. Access project data, upload materials, and manage research files." />
+  <title>Member Portal – INARELS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/portal.css" />
+</head>
+<body class="portal-body">
+
+  <!-- ═══════════════════════════════════════════════════════════
+       LOGIN SCREEN (shown by default)
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="portal-login-screen" id="login-screen">
+    <div class="login-bg"></div>
+    <div class="login-box">
+
+      <a href="../index.html" class="login-logo">
+        <span class="logo-inarels">INARELS</span>
+        <span class="logo-tagline">Research Network</span>
+      </a>
+
+      <div class="login-header">
+        <h1>Member Portal</h1>
+        <p>Sign in to access your project data, shared folders, and collaboration tools.</p>
+      </div>
+
+      <div class="login-form" id="login-form">
+        <div class="lf-group">
+          <label class="lf-label" for="login-email">Email Address</label>
+          <input type="email" id="login-email" class="lf-input" placeholder="you@institution.edu" />
+        </div>
+        <div class="lf-group">
+          <label class="lf-label" for="login-password">Password</label>
+          <input type="password" id="login-password" class="lf-input" placeholder="••••••••" />
+        </div>
+        <div class="lf-error" id="login-error" style="display:none;">
+          Invalid email or password. Please try again.
+        </div>
+        <button class="btn btn-gold btn-login" id="login-btn">Sign In to Portal</button>
+        <p class="login-note">Don't have an account? <a href="researchers.html#join" class="login-link">Apply for membership &rarr;</a></p>
+        <p class="login-demo-note">
+          <strong>Demo:</strong> Use <code>member@inarels.org</code> / <code>demo1234</code> for member view,
+          or <code>admin@inarels.org</code> / <code>admin1234</code> for admin view.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PORTAL DASHBOARD (hidden until login)
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="portal-dashboard" id="portal-dashboard" style="display:none;">
+
+    <!-- ── Portal Sidebar Nav ── -->
+    <aside class="portal-sidebar" id="portal-sidebar">
+      <div class="portal-sidebar-top">
+        <a href="../index.html" class="portal-logo">
+          <span class="logo-inarels">INARELS</span>
+          <span class="logo-tagline">Research Network</span>
+        </a>
+      </div>
+
+      <nav class="portal-nav">
+        <div class="portal-nav-section">
+          <span class="portal-nav-label">Main</span>
+          <ul>
+            <li><a href="#" class="portal-nav-link active" data-panel="dashboard">
+              <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><rect x="2" y="2" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="2" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="11" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="11" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
+              Dashboard
+            </a></li>
+            <li><a href="#" class="portal-nav-link" data-panel="projects">
+              <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><rect x="2" y="4" width="16" height="13" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M2 8h16" stroke="currentColor" stroke-width="1.5"/><path d="M6 2v4M14 2v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              My Projects
+            </a></li>
+            <li><a href="#" class="portal-nav-link" data-panel="files">
+              <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M3 5a2 2 0 012-2h4l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" stroke="currentColor" stroke-width="1.5"/></svg>
+              Shared Folders
+            </a></li>
+            <li><a href="#" class="portal-nav-link" data-panel="upload">
+              <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M10 13V4M6 8l4-4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 14v1a2 2 0 002 2h10a2 2 0 002-2v-1" stroke="currentColor" stroke-width="1.5"/></svg>
+              Upload Files
+            </a></li>
+            <li><a href="#" class="portal-nav-link" data-panel="requests">
+              <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><rect x="2" y="7" width="12" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M6 7V5a4 4 0 018 0v2" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="12" r="1.5" fill="currentColor"/></svg>
+              Access Requests
+              <span class="nav-badge" id="requests-badge">2</span>
+            </a></li>
+          </ul>
+        </div>
+
+        <div class="portal-nav-section">
+          <span class="portal-nav-label">Resources</span>
+          <ul>
+            <li><a href="#" class="portal-nav-link" data-panel="policy">
+              <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M6 2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4a2 2 0 012-2z" stroke="currentColor" stroke-width="1.5"/><path d="M8 7h4M8 10h4M8 13h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Agreements &amp; Policy
+            </a></li>
+            <li><a href="#" class="portal-nav-link" data-panel="profile">
+              <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><circle cx="10" cy="7" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M4 17c0-3.314 2.686-6 6-6s6 2.686 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              My Profile
+            </a></li>
+            <li class="admin-only" id="admin-nav-item" style="display:none;"><a href="#" class="portal-nav-link portal-nav-admin" data-panel="admin">
+              <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><circle cx="10" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.22 4.22l1.42 1.42M14.36 14.36l1.42 1.42M4.22 15.78l1.42-1.42M14.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Admin Controls
+            </a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="portal-sidebar-footer">
+        <div class="portal-user-chip" id="portal-user-chip">
+          <div class="user-chip-avatar" id="user-chip-avatar">DR</div>
+          <div class="user-chip-info">
+            <span class="user-chip-name" id="user-chip-name">Demo Researcher</span>
+            <span class="user-chip-role" id="user-chip-role">Network Member</span>
+          </div>
+        </div>
+        <button class="portal-logout-btn" id="logout-btn" title="Sign out">
+          <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M13 10H4M13 10l-3-3M13 10l-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 6V4a2 2 0 012-2h6a2 2 0 012 2v12a2 2 0 01-2 2H9a2 2 0 01-2-2v-2" stroke="currentColor" stroke-width="1.5"/></svg>
+        </button>
+      </div>
+    </aside>
+
+    <!-- ── Mobile header ── -->
+    <header class="portal-mobile-header">
+      <button class="portal-menu-btn" id="portal-menu-btn" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <span class="portal-mobile-logo">INARELS Portal</span>
+      <div class="portal-mobile-avatar" id="portal-mobile-avatar">DR</div>
+    </header>
+
+    <!-- ── Main content area ── -->
+    <main class="portal-main" id="portal-main">
+
+      <!-- ─────────────────────────────────────────────
+           PANEL: Dashboard
+      ───────────────────────────────────────────── -->
+      <div class="portal-panel active" id="panel-dashboard">
+
+        <div class="panel-header">
+          <h2>Welcome back, <span id="welcome-name">Researcher</span></h2>
+          <p class="panel-subtitle">Here is a summary of your INARELS activity and network updates.</p>
+        </div>
+
+        <!-- Announcements -->
+        <div class="dash-announcements">
+          <div class="dash-section-label">
+            <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M2 6a6 6 0 1112 0v1l1 3H1L2 7V6z" stroke="currentColor" stroke-width="1.5"/><path d="M6 13a2 2 0 004 0" stroke="currentColor" stroke-width="1.5"/></svg>
+            Announcements
+          </div>
+          <div class="announcements-list">
+            <div class="announcement-item announcement-pinned">
+              <span class="announce-tag announce-tag-pin">Pinned</span>
+              <p><strong>Dissemination planning update:</strong> The Language, Education, and Development project team is now accepting expressions of interest for co-authorship on the first manuscript. Contact Dr. Odugu at <a href="mailto:INARELSresearch@dr.com">INARELSresearch@dr.com</a> by the end of the month.</p>
+              <span class="announce-date">Posted by Network Coordinator</span>
+            </div>
+            <div class="announcement-item">
+              <span class="announce-tag announce-tag-general">General</span>
+              <p><strong>New member welcome:</strong> INARELS is pleased to welcome three new affiliated researchers joining the network this semester. Their profiles will be added to the public directory shortly.</p>
+              <span class="announce-date">Network Secretariat</span>
+            </div>
+            <div class="announcement-item">
+              <span class="announce-tag announce-tag-policy">Policy</span>
+              <p><strong>Authorship guidelines reminder:</strong> Lead researchers are reminded that annual progress reports are due to the INARELS Director. Reports can be brief but are required for project metadata and author role review.</p>
+              <span class="announce-date">INARELS Leadership Team</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick stats -->
+        <div class="dash-stats-row">
+          <div class="dash-stat-card">
+            <span class="dash-stat-num">4</span>
+            <span class="dash-stat-label">Active Projects</span>
+          </div>
+          <div class="dash-stat-card">
+            <span class="dash-stat-num">2</span>
+            <span class="dash-stat-label">My Project Folders</span>
+          </div>
+          <div class="dash-stat-card">
+            <span class="dash-stat-num">18</span>
+            <span class="dash-stat-label">Publications</span>
+          </div>
+          <div class="dash-stat-card dash-stat-card-alert">
+            <span class="dash-stat-num">2</span>
+            <span class="dash-stat-label">Pending Requests</span>
+          </div>
+        </div>
+
+        <!-- Quick access -->
+        <div class="dash-quick-access">
+          <div class="dash-section-label">
+            <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M3 5a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" stroke="currentColor" stroke-width="1.5"/><path d="M7 8h2M7 11h2M7 5h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Quick Access — Project Folders
+          </div>
+          <div class="quick-folders-grid">
+
+            <div class="quick-folder-card" data-panel="files">
+              <div class="qf-icon qf-icon-1">
+                <svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V7z" stroke="currentColor" stroke-width="1.5"/></svg>
+              </div>
+              <div class="qf-body">
+                <h4>Historicizing History Education</h4>
+                <p>Documents &middot; Data &middot; Publications</p>
+              </div>
+              <span class="qf-arrow">&rarr;</span>
+            </div>
+
+            <div class="quick-folder-card" data-panel="files">
+              <div class="qf-icon qf-icon-2">
+                <svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V7z" stroke="currentColor" stroke-width="1.5"/></svg>
+              </div>
+              <div class="qf-body">
+                <h4>Language, Historical Literacies &amp; Civic Engagement</h4>
+                <p>Instruments &middot; Audio &middot; Field Data</p>
+              </div>
+              <span class="qf-arrow">&rarr;</span>
+            </div>
+
+            <div class="quick-folder-card qf-locked">
+              <div class="qf-icon qf-icon-locked">
+                <svg viewBox="0 0 24 24" fill="none" width="22" height="22"><rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 11V7a4 4 0 018 0v4" stroke="currentColor" stroke-width="1.5"/></svg>
+              </div>
+              <div class="qf-body">
+                <h4>AGIRD</h4>
+                <p>Access not yet approved</p>
+              </div>
+              <span class="qf-arrow">&#8594;</span>
+            </div>
+
+            <div class="quick-folder-card" data-panel="files">
+              <div class="qf-icon qf-icon-3">
+                <svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V7z" stroke="currentColor" stroke-width="1.5"/></svg>
+              </div>
+              <div class="qf-body">
+                <h4>Language, Education &amp; Development</h4>
+                <p>Fieldwork Archive &middot; Visual</p>
+              </div>
+              <span class="qf-arrow">&rarr;</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ─────────────────────────────────────────────
+           PANEL: My Projects
+      ───────────────────────────────────────────── -->
+      <div class="portal-panel" id="panel-projects">
+        <div class="panel-header">
+          <h2>My Projects</h2>
+          <p class="panel-subtitle">Projects you are affiliated with as lead researcher, collaborator, or contributing author.</p>
+        </div>
+
+        <div class="projects-portal-list">
+
+          <div class="proj-portal-item">
+            <div class="ppi-left">
+              <div class="ppi-color-bar ppi-color-1"></div>
+              <div class="ppi-info">
+                <h3>Historicizing History Education</h3>
+                <p>Nigeria &middot; Ghana &middot; Kenya &middot; Uganda</p>
+                <div class="ppi-tags">
+                  <span class="ppi-tag">Education</span>
+                  <span class="ppi-tag">History</span>
+                  <span class="ppi-role">Collaborator</span>
+                </div>
+              </div>
+            </div>
+            <div class="ppi-right">
+              <span class="ppi-status ppi-active">Active</span>
+              <button class="ppi-btn" data-panel="files">Open Folder</button>
+              <a href="project-historicizing-history-education.html" class="ppi-btn ppi-btn-ghost">Public Page</a>
+            </div>
+          </div>
+
+          <div class="proj-portal-item">
+            <div class="ppi-left">
+              <div class="ppi-color-bar ppi-color-2"></div>
+              <div class="ppi-info">
+                <h3>Language, Historical Literacies &amp; Civic Engagement</h3>
+                <p>Pan-African &middot; Initiated 2013</p>
+                <div class="ppi-tags">
+                  <span class="ppi-tag">Language</span>
+                  <span class="ppi-tag">History</span>
+                  <span class="ppi-tag">Society</span>
+                  <span class="ppi-role">Collaborator</span>
+                </div>
+              </div>
+            </div>
+            <div class="ppi-right">
+              <span class="ppi-status ppi-active">Active</span>
+              <button class="ppi-btn" data-panel="files">Open Folder</button>
+              <a href="project-language-historical-literacies.html" class="ppi-btn ppi-btn-ghost">Public Page</a>
+            </div>
+          </div>
+
+          <div class="proj-portal-item ppi-locked">
+            <div class="ppi-left">
+              <div class="ppi-color-bar ppi-color-locked"></div>
+              <div class="ppi-info">
+                <h3>Achievement Gap &amp; Intra-racial Dynamics (AGIRD)</h3>
+                <p>Midwest USA &middot; Diaspora</p>
+                <div class="ppi-tags">
+                  <span class="ppi-tag">Education</span>
+                  <span class="ppi-tag">Society</span>
+                  <span class="ppi-role ppi-role-pending">Access Pending</span>
+                </div>
+              </div>
+            </div>
+            <div class="ppi-right">
+              <span class="ppi-status ppi-pending">Pending</span>
+              <button class="ppi-btn ppi-btn-disabled" disabled>Access Pending</button>
+              <a href="project-agird.html" class="ppi-btn ppi-btn-ghost">Public Page</a>
+            </div>
+          </div>
+
+          <div class="proj-portal-item">
+            <div class="ppi-left">
+              <div class="ppi-color-bar ppi-color-3"></div>
+              <div class="ppi-info">
+                <h3>Language, Education, and Development</h3>
+                <p>Africa-wide &middot; Dissemination Phase</p>
+                <div class="ppi-tags">
+                  <span class="ppi-tag">Language</span>
+                  <span class="ppi-tag">Education</span>
+                  <span class="ppi-role">Contributing Author</span>
+                </div>
+              </div>
+            </div>
+            <div class="ppi-right">
+              <span class="ppi-status ppi-dissem">Dissemination</span>
+              <button class="ppi-btn" data-panel="files">Open Folder</button>
+              <a href="project-language-education-development.html" class="ppi-btn ppi-btn-ghost">Public Page</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ─────────────────────────────────────────────
+           PANEL: Shared Folders
+      ───────────────────────────────────────────── -->
+      <div class="portal-panel" id="panel-files">
+        <div class="panel-header">
+          <h2>Shared Project Folders</h2>
+          <p class="panel-subtitle">Project-specific materials organized by type. You can only see folders for projects you have been approved to access.</p>
+        </div>
+
+        <!-- Project accordion folders -->
+        <div class="folders-accordion" id="folders-accordion">
+
+          <!-- Folder: Historicizing History Education -->
+          <div class="folder-group">
+            <button class="folder-group-header" data-folder="folder-1">
+              <div class="fgh-left">
+                <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M3 7a2 2 0 012-2h4l2 2h6a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2V7z" fill="rgba(201,146,42,0.2)" stroke="#C9922A" stroke-width="1.5"/></svg>
+                <span class="fgh-title">Historicizing History Education</span>
+                <span class="fgh-count">7 files</span>
+              </div>
+              <svg class="fgh-chevron" viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="folder-contents open" id="folder-1">
+              <div class="folder-subfolders">
+                <div class="subfolder-tabs" id="sub-tabs-1">
+                  <button class="subfolder-tab active" data-sub="docs-1">Documents</button>
+                  <button class="subfolder-tab" data-sub="data-1">Data Tables</button>
+                  <button class="subfolder-tab" data-sub="pub-1">Publications</button>
+                  <button class="subfolder-tab" data-sub="img-1">Images</button>
+                  <button class="subfolder-tab" data-sub="agree-1">Agreements</button>
+                </div>
+                <div class="subfolder-content active" id="docs-1">
+                  <div class="files-list">
+                    <div class="file-item">
+                      <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M4 3h8l4 4v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1z" stroke="currentColor" stroke-width="1.5"/><path d="M12 3v4h4" stroke="currentColor" stroke-width="1.5"/></svg>
+                      <span class="file-name">Research_Instruments_v3.docx</span>
+                      <span class="file-meta">Dr. Odugu &middot; 245 KB</span>
+                      <div class="file-actions">
+                        <button class="file-btn">Download</button>
+                      </div>
+                    </div>
+                    <div class="file-item">
+                      <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M4 3h8l4 4v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1z" stroke="currentColor" stroke-width="1.5"/><path d="M12 3v4h4" stroke="currentColor" stroke-width="1.5"/></svg>
+                      <span class="file-name">Interview_Protocol_Nigeria.docx</span>
+                      <span class="file-meta">Dr. Odugu &middot; 112 KB</span>
+                      <div class="file-actions">
+                        <button class="file-btn">Download</button>
+                      </div>
+                    </div>
+                    <div class="file-item">
+                      <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M4 3h8l4 4v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1z" stroke="currentColor" stroke-width="1.5"/><path d="M12 3v4h4" stroke="currentColor" stroke-width="1.5"/></svg>
+                      <span class="file-name">Field_Notes_Ghana_2023.pdf</span>
+                      <span class="file-meta">G. Adika &middot; 890 KB</span>
+                      <div class="file-actions">
+                        <button class="file-btn">Download</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="subfolder-content" id="data-1">
+                  <div class="files-list">
+                    <div class="file-item">
+                      <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><rect x="3" y="3" width="14" height="14" rx="1" stroke="#2db45a" stroke-width="1.5"/><path d="M3 8h14M3 13h14M8 3v14" stroke="#2db45a" stroke-width="1.5"/></svg>
+                      <span class="file-name">Survey_Data_Master.xlsx</span>
+                      <span class="file-meta">Dr. Odugu &middot; 1.2 MB</span>
+                      <div class="file-actions">
+                        <button class="file-btn">Download</button>
+                      </div>
+                    </div>
+                    <div class="file-item">
+                      <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><rect x="3" y="3" width="14" height="14" rx="1" stroke="#2db45a" stroke-width="1.5"/><path d="M3 8h14M3 13h14M8 3v14" stroke="#2db45a" stroke-width="1.5"/></svg>
+                      <span class="file-name">Coded_Interviews_Kenya.xlsx</span>
+                      <span class="file-meta">J. Oduor &middot; 560 KB</span>
+                      <div class="file-actions">
+                        <button class="file-btn">Download</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="subfolder-content" id="pub-1">
+                  <div class="files-list">
+                    <div class="file-item">
+                      <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M4 3h8l4 4v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1z" stroke="#e53935" stroke-width="1.5"/></svg>
+                      <span class="file-name">Odugu_2015_Antinomies.pdf</span>
+                      <span class="file-meta">Open Access &middot; 320 KB</span>
+                      <div class="file-actions">
+                        <button class="file-btn">Download</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="subfolder-content" id="img-1">
+                  <div class="files-list">
+                    <div class="file-item">
+                      <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><rect x="2" y="3" width="16" height="14" rx="2" stroke="#C9922A" stroke-width="1.5"/><circle cx="7" cy="8" r="1.5" fill="#C9922A"/><path d="M2 14l5-4 4 3 3-2 4 3" stroke="#C9922A" stroke-width="1.5"/></svg>
+                      <span class="file-name">Fieldwork_Nigeria_2022.zip</span>
+                      <span class="file-meta">Dr. Odugu &middot; 48 MB &middot; 34 images</span>
+                      <div class="file-actions">
+                        <button class="file-btn">Download</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="subfolder-content" id="agree-1">
+                  <div class="files-list">
+                    <div class="file-item">
+                      <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M4 3h8l4 4v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1z" stroke="currentColor" stroke-width="1.5"/></svg>
+                      <span class="file-name">Data_Use_Agreement_Template.pdf</span>
+                      <span class="file-meta">INARELS Secretariat &middot; 95 KB</span>
+                      <div class="file-actions">
+                        <button class="file-btn">Download</button>
+                        <button class="file-btn file-btn-sign">Sign</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Folder: Language Education Development -->
+          <div class="folder-group">
+            <button class="folder-group-header" data-folder="folder-3">
+              <div class="fgh-left">
+                <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M3 7a2 2 0 012-2h4l2 2h6a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2V7z" fill="rgba(201,146,42,0.1)" stroke="#C9922A" stroke-width="1.5"/></svg>
+                <span class="fgh-title">Language, Education, and Development</span>
+                <span class="fgh-count">12 files</span>
+              </div>
+              <svg class="fgh-chevron" viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="folder-contents" id="folder-3">
+              <div class="folder-subfolders">
+                <div class="subfolder-tabs" id="sub-tabs-3">
+                  <button class="subfolder-tab active" data-sub="docs-3">Documents</button>
+                  <button class="subfolder-tab" data-sub="audio-3">Audio</button>
+                  <button class="subfolder-tab" data-sub="img-3">Visual</button>
+                  <button class="subfolder-tab" data-sub="pub-3">Publications</button>
+                </div>
+                <div class="subfolder-content active" id="docs-3">
+                  <div class="files-list">
+                    <div class="file-item">
+                      <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M4 3h8l4 4v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1z" stroke="currentColor" stroke-width="1.5"/><path d="M12 3v4h4" stroke="currentColor" stroke-width="1.5"/></svg>
+                      <span class="file-name">Ethnographic_Notes_Botswana.docx</span>
+                      <span class="file-meta">A. Chebanne &middot; 2.1 MB</span>
+                      <div class="file-actions"><button class="file-btn">Download</button></div>
+                    </div>
+                    <div class="file-item">
+                      <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M4 3h8l4 4v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1z" stroke="currentColor" stroke-width="1.5"/><path d="M12 3v4h4" stroke="currentColor" stroke-width="1.5"/></svg>
+                      <span class="file-name">Policy_Analysis_Tanzania.pdf</span>
+                      <span class="file-meta">A. Mreta &middot; 650 KB</span>
+                      <div class="file-actions"><button class="file-btn">Download</button></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="subfolder-content" id="audio-3">
+                  <div class="files-list">
+                    <div class="file-item">
+                      <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><circle cx="10" cy="10" r="7" stroke="#7c4dff" stroke-width="1.5"/><path d="M7 8a3 3 0 016 0v3a3 3 0 01-6 0V8z" stroke="#7c4dff" stroke-width="1.5"/><path d="M10 15v2M8 17h4" stroke="#7c4dff" stroke-width="1.5" stroke-linecap="round"/></svg>
+                      <span class="file-name">Interview_Nigeria_Participant_04.mp3</span>
+                      <span class="file-meta">Dr. Odugu &middot; 34 MB &middot; 42 min</span>
+                      <div class="file-actions"><button class="file-btn">Download</button></div>
+                    </div>
+                    <div class="file-item">
+                      <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><circle cx="10" cy="10" r="7" stroke="#7c4dff" stroke-width="1.5"/><path d="M7 8a3 3 0 016 0v3a3 3 0 01-6 0V8z" stroke="#7c4dff" stroke-width="1.5"/><path d="M10 15v2M8 17h4" stroke="#7c4dff" stroke-width="1.5" stroke-linecap="round"/></svg>
+                      <span class="file-name">Community_Forum_Ghana_Recording.mp3</span>
+                      <span class="file-meta">G. Adika &middot; 58 MB &middot; 71 min</span>
+                      <div class="file-actions"><button class="file-btn">Download</button></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="subfolder-content" id="img-3">
+                  <div class="files-list">
+                    <div class="file-item">
+                      <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><rect x="2" y="3" width="16" height="14" rx="2" stroke="#C9922A" stroke-width="1.5"/><circle cx="7" cy="8" r="1.5" fill="#C9922A"/><path d="M2 14l5-4 4 3 3-2 4 3" stroke="#C9922A" stroke-width="1.5"/></svg>
+                      <span class="file-name">Fieldwork_Archive_2014-2023.zip</span>
+                      <span class="file-meta">Dr. Odugu &middot; 420 MB &middot; 200+ images</span>
+                      <div class="file-actions"><button class="file-btn">Download</button></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="subfolder-content" id="pub-3">
+                  <div class="files-list">
+                    <div class="file-item">
+                      <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M4 3h8l4 4v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1z" stroke="#e53935" stroke-width="1.5"/></svg>
+                      <span class="file-name">Bamgbose_2000_Language_Exclusion.pdf</span>
+                      <span class="file-meta">Open Access &middot; 2.3 MB</span>
+                      <div class="file-actions"><button class="file-btn">Download</button></div>
+                    </div>
+                    <div class="file-item">
+                      <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M4 3h8l4 4v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1z" stroke="#e53935" stroke-width="1.5"/></svg>
+                      <span class="file-name">UNESCO_2003_Multilingual_World.pdf</span>
+                      <span class="file-meta">Open Access &middot; 1.8 MB</span>
+                      <div class="file-actions"><button class="file-btn">Download</button></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ─────────────────────────────────────────────
+           PANEL: Upload Files
+      ───────────────────────────────────────────── -->
+      <div class="portal-panel" id="panel-upload">
+        <div class="panel-header">
+          <h2>Upload Files</h2>
+          <p class="panel-subtitle">Upload research materials to a project folder. All uploads are reviewed by the project lead before becoming accessible to other members.</p>
+        </div>
+
+        <div class="upload-layout">
+          <div class="upload-main">
+
+            <!-- Project selector -->
+            <div class="upload-form-group">
+              <label class="upload-label">Select Project <span class="req-mark">*</span></label>
+              <div class="upload-select-wrapper">
+                <select class="upload-select" id="upload-project">
+                  <option value="">— Choose a project —</option>
+                  <option value="hhe">Historicizing History Education</option>
+                  <option value="lhlce">Language, Historical Literacies &amp; Civic Engagement</option>
+                  <option value="led">Language, Education, and Development</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- File type selector -->
+            <div class="upload-form-group">
+              <label class="upload-label">File Category <span class="req-mark">*</span></label>
+              <div class="upload-type-grid">
+                <label class="upload-type-btn">
+                  <input type="radio" name="file-type" value="documents" />
+                  <svg viewBox="0 0 24 24" fill="none" width="20" height="20"><path d="M6 2h8l4 4v14a2 2 0 01-2 2H6a2 2 0 01-2-2V4a2 2 0 012-2z" stroke="currentColor" stroke-width="1.5"/></svg>
+                  <span>Documents</span>
+                </label>
+                <label class="upload-type-btn">
+                  <input type="radio" name="file-type" value="data" />
+                  <svg viewBox="0 0 24 24" fill="none" width="20" height="20"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 9h18M3 15h18M9 3v18" stroke="currentColor" stroke-width="1.5"/></svg>
+                  <span>Data / Spreadsheet</span>
+                </label>
+                <label class="upload-type-btn">
+                  <input type="radio" name="file-type" value="audio" />
+                  <svg viewBox="0 0 24 24" fill="none" width="20" height="20"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M9 10a3 3 0 016 0v3a3 3 0 01-6 0v-3z" stroke="currentColor" stroke-width="1.5"/></svg>
+                  <span>Audio</span>
+                </label>
+                <label class="upload-type-btn">
+                  <input type="radio" name="file-type" value="visual" />
+                  <svg viewBox="0 0 24 24" fill="none" width="20" height="20"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="8.5" cy="9.5" r="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 17l5-4 4 3 3-2 6 3" stroke="currentColor" stroke-width="1.5"/></svg>
+                  <span>Images / Visual</span>
+                </label>
+                <label class="upload-type-btn">
+                  <input type="radio" name="file-type" value="publications" />
+                  <svg viewBox="0 0 24 24" fill="none" width="20" height="20"><path d="M4 19.5A2.5 2.5 0 016.5 17H20" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" stroke="currentColor" stroke-width="1.5"/></svg>
+                  <span>Publications</span>
+                </label>
+                <label class="upload-type-btn">
+                  <input type="radio" name="file-type" value="agreements" />
+                  <svg viewBox="0 0 24 24" fill="none" width="20" height="20"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" stroke="currentColor" stroke-width="1.5"/><path d="M9 5a2 2 0 002 2h2a2 2 0 002-2 2 2 0 00-2-2h-2a2 2 0 00-2 2z" stroke="currentColor" stroke-width="1.5"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>Agreements</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Drop zone -->
+            <div class="upload-dropzone" id="upload-dropzone">
+              <svg viewBox="0 0 48 48" fill="none" width="40" height="40"><path d="M24 30V10M14 20l10-10 10 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 36v2a2 2 0 002 2h28a2 2 0 002-2v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <p class="dropzone-label">Drag and drop files here</p>
+              <p class="dropzone-sub">or</p>
+              <button class="btn-browse-files" id="browse-btn">Browse Files</button>
+              <input type="file" id="file-input" multiple style="display:none;" />
+              <p class="dropzone-types">Supported: Word, Excel, PDF, MP3, MP4, JPG, PNG, ZIP &middot; Max 500 MB per file</p>
+            </div>
+
+            <!-- File queue -->
+            <div class="upload-queue" id="upload-queue" style="display:none;">
+              <div class="upload-queue-header">
+                <span>Files to upload</span>
+                <button class="upload-queue-clear" id="clear-queue">Clear all</button>
+              </div>
+              <div class="upload-queue-list" id="upload-queue-list"></div>
+              <button class="btn btn-gold upload-submit-btn" id="upload-submit-btn">Upload All Files</button>
+            </div>
+
+            <!-- Description -->
+            <div class="upload-form-group">
+              <label class="upload-label" for="upload-desc">Description / Notes (optional)</label>
+              <textarea class="upload-textarea" id="upload-desc" rows="3" placeholder="Brief description of what you are uploading and its relevance to the project..."></textarea>
+            </div>
+
+          </div>
+
+          <!-- Upload sidebar guidelines -->
+          <div class="upload-sidebar">
+            <div class="upload-guide-card">
+              <h4>Upload Guidelines</h4>
+              <ul>
+                <li>Only upload materials directly relevant to the selected project.</li>
+                <li>All uploads are initially visible only to the project lead for review before being shared with the wider project team.</li>
+                <li>Include a clear, descriptive filename (e.g. <code>Interview_Nigeria_P04_2023.mp3</code>).</li>
+                <li>Do not upload personally identifiable participant data without appropriate anonymization or consent documentation.</li>
+                <li>Audio and visual files should include a brief description of content in the notes field.</li>
+              </ul>
+            </div>
+            <div class="upload-guide-card upload-guide-card-dark">
+              <h4>Data Sharing Reminder</h4>
+              <p>By uploading to INARELS, you confirm that you have the right to share this material under the INARELS Data Sharing and Authorship Policy. Uploading does not constitute publication or public release.</p>
+              <a href="#" class="portal-panel-link" data-panel="policy">Read Full Policy &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─────────────────────────────────────────────
+           PANEL: Access Requests
+      ───────────────────────────────────────────── -->
+      <div class="portal-panel" id="panel-requests">
+        <div class="panel-header">
+          <h2>Access Requests</h2>
+          <p class="panel-subtitle">Track your pending data access requests and request access to additional projects.</p>
+        </div>
+
+        <div class="requests-my">
+          <h3 class="requests-subtitle">My Pending Requests</h3>
+          <div class="requests-list">
+            <div class="request-item">
+              <div class="request-left">
+                <span class="request-project">Achievement Gap &amp; Intra-racial Dynamics (AGIRD)</span>
+                <span class="request-desc">Requested access to full project data folder &mdash; survey instruments and interview transcripts.</span>
+                <span class="request-date">Submitted 3 days ago &middot; Awaiting lead researcher approval</span>
+              </div>
+              <div class="request-right">
+                <span class="request-status request-pending">Pending</span>
+              </div>
+            </div>
+            <div class="request-item">
+              <div class="request-left">
+                <span class="request-project">Language, Historical Literacies &amp; Civic Engagement</span>
+                <span class="request-desc">Requested access to audio recordings — community forum sessions.</span>
+                <span class="request-date">Submitted 1 week ago &middot; Awaiting lead researcher approval</span>
+              </div>
+              <div class="request-right">
+                <span class="request-status request-pending">Pending</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="requests-new">
+          <h3 class="requests-subtitle">Request Access to a Project</h3>
+          <div class="request-form-card">
+            <div class="rf-group">
+              <label class="upload-label">Project</label>
+              <select class="upload-select">
+                <option value="">— Select project —</option>
+                <option>Historicizing History Education</option>
+                <option>Language, Historical Literacies &amp; Civic Engagement</option>
+                <option>Achievement Gap &amp; Intra-racial Dynamics (AGIRD)</option>
+                <option>Language, Education, and Development</option>
+              </select>
+            </div>
+            <div class="rf-group">
+              <label class="upload-label">What data do you need?</label>
+              <textarea class="upload-textarea" rows="3" placeholder="Briefly describe which materials you need and why they are relevant to your research..."></textarea>
+            </div>
+            <button class="btn btn-gold">Submit Access Request</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─────────────────────────────────────────────
+           PANEL: Policy
+      ───────────────────────────────────────────── -->
+      <div class="portal-panel" id="panel-policy">
+        <div class="panel-header">
+          <h2>Agreements &amp; Policy</h2>
+          <p class="panel-subtitle">INARELS Data Sharing Policy and Authorship Guidelines governing all network research and collaboration.</p>
+        </div>
+
+        <div class="policy-layout">
+
+          <div class="policy-toc">
+            <h4>Contents</h4>
+            <ul>
+              <li><a href="#pol-sharing">Data Sharing Policy</a></li>
+              <li><a href="#pol-philosophy">Authorship Philosophy</a></li>
+              <li><a href="#pol-details">Authorship Policy Details</a></li>
+              <li><a href="#pol-presentations">Presentations &amp; Posters</a></li>
+              <li><a href="#pol-grievance">Grievance Procedure</a></li>
+              <li><a href="#pol-agreements">Download Agreements</a></li>
+            </ul>
+          </div>
+
+          <div class="policy-content">
+
+            <div class="policy-section" id="pol-sharing">
+              <h3>Data Sharing Policy</h3>
+              <ul class="policy-list">
+                <li>Citation of data is required — guidelines provided on the web page.</li>
+                <li>Notification of the INARELS Leadership Team (through the INARELS Director) is required to use data.</li>
+                <li>Data will become publicly available on a project-by-project basis, determined by the lead researcher of each project in consultation with all collaborators and authors.</li>
+                <li>The full data set becomes immediately available for teaching purposes only with an electronic signature on a form stating that the data will be used for teaching purposes only.</li>
+                <li>Web page registration is required.</li>
+              </ul>
+              <p class="policy-note">These guidelines may be amended over time as deemed necessary by the INARELS Leadership Team.</p>
+            </div>
+
+            <div class="policy-section" id="pol-philosophy">
+              <h3>INARELS Philosophy on Authorship</h3>
+              <ul class="policy-list">
+                <li>We are committed to high-quality rigorous scholarship and socially effective practices as a result of the collaborative process.</li>
+                <li>We undertake to disseminate high quality data and findings through top-tier peer-reviewed academic publications and other impactful non-scholarly avenues.</li>
+                <li>We strive for inclusivity in authorship, assuming that potential authors demonstrate interest in and commitment to, have been active participants, and have made meaningful contributions to a given research project and manuscript development.</li>
+                <li>In cases of doubt, all contributors in the research process or manuscript will be acknowledged in relevant appendices or as contributors in the publication.</li>
+                <li>INARELS is interdisciplinary and pursues multidisciplinary projects. Collaborators are expected to contribute to projects outside their own discipline, in trade for collaboration on projects within their discipline. INARELS views this arrangement as an opportunity for professional development.</li>
+              </ul>
+            </div>
+
+            <div class="policy-section" id="pol-details">
+              <h3>Authorship Policy Details</h3>
+              <p>Each INARELS project has a lead researcher or specified author — typically the person who initiated the project and directs the research process, who is the first author on the first publication from the project. The lead researcher:</p>
+              <ul class="policy-list">
+                <li>Delegates tasks to other collaborators and co-authors in concert with the INARELS Director.</li>
+                <li>Has primary responsibility for developing, coordinating revision of, and submitting the first manuscript.</li>
+                <li>Is responsible for the primary data analysis.</li>
+                <li>Presents an annual progress report to INARELS and co-authors by a date specified by the INARELS Director.</li>
+                <li>Is responsible for developing a dissemination plan for data within 2 years of availability. The 2-year deadline can be extended with permission of the research team, given extenuating circumstances.</li>
+              </ul>
+              <p>An individual can become a contributing researcher and/or co-author by contributing to: research design, data collection, preexisting data, data analysis, reviewing all drafts, undertaking delegated analysis or manuscript preparation tasks, and remaining in regular communication with the lead researcher.</p>
+              <p class="policy-note">Students will be considered for authorship if they meet the guidelines for a contributing author and their contribution was part of an independent project, not a course assignment. The INARELS faculty mentor must support the student's inclusion.</p>
+            </div>
+
+            <div class="policy-section" id="pol-presentations">
+              <h3>Presentations &amp; Posters</h3>
+              <p>Authorship decisions on presentations and posters at meetings and conferences that include data from INARELS projects are at the discretion of the person preparing the presentation. At minimum, presenters are requested to:</p>
+              <ul class="policy-list">
+                <li>Cite the database from which the data are taken (see project pages on the INARELS website for citation guidelines).</li>
+                <li>Provide acknowledgment of the INARELS network.</li>
+                <li>Inform the network by email at <a href="mailto:INARELSresearch@dr.com" class="inline-link">INARELSresearch@dr.com</a> that the presentation occurred, so that INARELS can report this in relevant funding reports.</li>
+              </ul>
+            </div>
+
+            <div class="policy-section" id="pol-grievance">
+              <h3>Authorship Grievance Procedure</h3>
+              <p>INARELS expects all lead authors to be clear, ethical, transparent, and timely in applying the authorship policy agreed upon by their collaborative project team. If there is a disagreement about authorship:</p>
+              <ul class="policy-list">
+                <li>The person with the complaint should first discuss the issue directly with the lead author of the manuscript.</li>
+                <li>If unresolved, the complaint can be brought to the INARELS Leadership Team (ILT) through the INARELS Director, who will facilitate further discussion and make a written recommendation.</li>
+                <li>Members of the ILT with a conflict of interest regarding the manuscript will recuse themselves from the discussion.</li>
+                <li>The ILT may bring in colleagues from outside INARELS to help resolve the dispute.</li>
+              </ul>
+              <p class="policy-note">These guidelines may be amended over time as deemed necessary by the INARELS Leadership Team.</p>
+            </div>
+
+            <div class="policy-section" id="pol-agreements">
+              <h3>Download Agreements</h3>
+              <div class="agreements-download-list">
+                <div class="agreement-download-item">
+                  <svg viewBox="0 0 20 20" fill="none" width="18" height="18"><path d="M4 3h8l4 4v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1z" stroke="#e53935" stroke-width="1.5"/></svg>
+                  <div>
+                    <strong>Data Use Agreement — Teaching Purposes</strong>
+                    <p>Required before accessing full datasets for teaching. Electronic signature required.</p>
+                  </div>
+                  <button class="file-btn">Download PDF</button>
+                </div>
+                <div class="agreement-download-item">
+                  <svg viewBox="0 0 20 20" fill="none" width="18" height="18"><path d="M4 3h8l4 4v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1z" stroke="#e53935" stroke-width="1.5"/></svg>
+                  <div>
+                    <strong>Research Collaboration Agreement Template</strong>
+                    <p>Standard agreement for new collaborators joining an existing INARELS project.</p>
+                  </div>
+                  <button class="file-btn">Download PDF</button>
+                </div>
+                <div class="agreement-download-item">
+                  <svg viewBox="0 0 20 20" fill="none" width="18" height="18"><path d="M4 3h8l4 4v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1z" stroke="#e53935" stroke-width="1.5"/></svg>
+                  <div>
+                    <strong>Authorship Agreement — Multi-author Projects</strong>
+                    <p>Formalizes author roles, contribution levels, and order of authorship for project manuscripts.</p>
+                  </div>
+                  <button class="file-btn">Download PDF</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ─────────────────────────────────────────────
+           PANEL: My Profile
+      ───────────────────────────────────────────── -->
+      <div class="portal-panel" id="panel-profile">
+        <div class="panel-header">
+          <h2>My Profile</h2>
+          <p class="panel-subtitle">Your public researcher profile as it appears in the INARELS directory. Keep this up to date.</p>
+        </div>
+        <div class="profile-layout">
+          <div class="profile-avatar-col">
+            <div class="profile-avatar-block">
+              <div class="profile-avatar-circle" id="profile-avatar-big">DR</div>
+              <button class="profile-avatar-change">Change Photo</button>
+            </div>
+          </div>
+          <div class="profile-form-col">
+            <div class="profile-form-row">
+              <div class="profile-form-group">
+                <label class="upload-label">Full Name</label>
+                <input type="text" class="lf-input" value="Demo Researcher, Ph.D." />
+              </div>
+              <div class="profile-form-group">
+                <label class="upload-label">Email</label>
+                <input type="email" class="lf-input" value="member@inarels.org" />
+              </div>
+            </div>
+            <div class="profile-form-row">
+              <div class="profile-form-group">
+                <label class="upload-label">Institution / Affiliation</label>
+                <input type="text" class="lf-input" value="University of Research" />
+              </div>
+              <div class="profile-form-group">
+                <label class="upload-label">Country / Region</label>
+                <input type="text" class="lf-input" value="Nigeria" />
+              </div>
+            </div>
+            <div class="profile-form-group">
+              <label class="upload-label">Short Bio</label>
+              <textarea class="upload-textarea" rows="4">Researcher specializing in language education policy and sociolinguistics in multilingual West African contexts.</textarea>
+            </div>
+            <div class="profile-form-group">
+              <label class="upload-label">Research Interests (comma separated)</label>
+              <input type="text" class="lf-input" value="Language Policy, Sociolinguistics, Multilingual Education" />
+            </div>
+            <button class="btn btn-gold" style="margin-top:8px;">Save Profile</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─────────────────────────────────────────────
+           PANEL: Admin Controls (admin only)
+      ───────────────────────────────────────────── -->
+      <div class="portal-panel" id="panel-admin">
+        <div class="panel-header">
+          <h2>Admin Controls</h2>
+          <p class="panel-subtitle admin-badge-label"><span class="admin-badge">Admin</span> You have full administrative access to INARELS network management.</p>
+        </div>
+
+        <div class="admin-grid">
+
+          <div class="admin-card">
+            <h3>Membership Requests</h3>
+            <div class="admin-requests-list">
+              <div class="admin-request-item">
+                <div>
+                  <strong>Sarah Mensah, Ph.D.</strong>
+                  <p>University of Cape Coast, Ghana &middot; Applied Linguistics</p>
+                  <p class="admin-request-sub">Submitted 2 days ago</p>
+                </div>
+                <div class="admin-request-actions">
+                  <button class="admin-btn admin-btn-approve">Approve</button>
+                  <button class="admin-btn admin-btn-reject">Decline</button>
+                  <button class="admin-btn admin-btn-view">View</button>
+                </div>
+              </div>
+              <div class="admin-request-item">
+                <div>
+                  <strong>Kwame Asante</strong>
+                  <p>University of Ghana &middot; History Education</p>
+                  <p class="admin-request-sub">Submitted 5 days ago</p>
+                </div>
+                <div class="admin-request-actions">
+                  <button class="admin-btn admin-btn-approve">Approve</button>
+                  <button class="admin-btn admin-btn-reject">Decline</button>
+                  <button class="admin-btn admin-btn-view">View</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-card">
+            <h3>Data Access Requests</h3>
+            <div class="admin-requests-list">
+              <div class="admin-request-item">
+                <div>
+                  <strong>Demo Researcher</strong>
+                  <p>AGIRD — Survey instruments &amp; interview transcripts</p>
+                  <p class="admin-request-sub">3 days ago</p>
+                </div>
+                <div class="admin-request-actions">
+                  <button class="admin-btn admin-btn-approve">Approve</button>
+                  <button class="admin-btn admin-btn-reject">Decline</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-card">
+            <h3>File Moderation</h3>
+            <p class="admin-card-sub">Recently uploaded files awaiting review before sharing with project teams.</p>
+            <div class="admin-files-list">
+              <div class="admin-file-item">
+                <svg viewBox="0 0 16 16" fill="none" width="13" height="13"><path d="M4 2h5l3 3v8H4V2z" stroke="currentColor" stroke-width="1.5"/></svg>
+                <span>Field_Notes_Uganda_2024.pdf</span>
+                <div class="admin-request-actions">
+                  <button class="admin-btn admin-btn-approve">Share</button>
+                  <button class="admin-btn admin-btn-reject">Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-card">
+            <h3>Member Management</h3>
+            <p class="admin-card-sub">14 active members across 4 regional teams.</p>
+            <div class="admin-member-stats">
+              <div class="admin-member-stat"><span>West Africa</span><strong>7</strong></div>
+              <div class="admin-member-stat"><span>East Africa</span><strong>4</strong></div>
+              <div class="admin-member-stat"><span>Southern Africa</span><strong>2</strong></div>
+              <div class="admin-member-stat"><span>USA / Diaspora</span><strong>1</strong></div>
+            </div>
+            <button class="admin-btn admin-btn-view" style="margin-top:16px; width:100%;">Manage All Members</button>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+  </div><!-- /.portal-dashboard -->
+
+  <script src="../js/main.js"></script>
+  <script src="../js/portal.js"></script>
+</body>
+</html>
