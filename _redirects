@@ -1,0 +1,16 @@
+# INARELS — Netlify redirects
+# Ensures clean URLs and prevents 404s on direct navigation
+
+/about          /pages/about.html           200
+/projects       /pages/projects.html        200
+/researchers    /pages/researchers.html     200
+/portal         /pages/portal.html          200
+
+# Project pages
+/projects/historicizing-history-education       /pages/project-historicizing-history-education.html     200
+/projects/language-historical-literacies        /pages/project-language-historical-literacies.html      200
+/projects/agird                                 /pages/project-agird.html                               200
+/projects/language-education-development        /pages/project-language-education-development.html      200
+
+# Fallback — send unknown routes to homepage
+/*              /index.html                 200

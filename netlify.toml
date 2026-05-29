@@ -1,0 +1,24 @@
+# INARELS — Netlify configuration
+# Place this file at the root of your repo
+
+[build]
+  publish = "."      # serve from repo root (change to "inarels" if your files are in a subfolder)
+  command = ""       # no build step needed — pure HTML/CSS/JS
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
