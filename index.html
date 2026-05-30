@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="INARELS – International Network for Action Research on Education, Language and Society. Connecting scholars and communities through collaborative research." />
+  <title>INARELS – International Network for Action Research on Education, Language and Society</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Sans+3:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════ NAVBAR ═══ -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo-block">
+        <span class="logo-inarels">INARELS</span>
+        <span class="logo-tagline">Research Network</span>
+      </a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="main-nav">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="pages/about.html">About</a></li>
+          <li><a href="pages/projects.html">Projects</a></li>
+          <li><a href="pages/researchers.html">Researchers</a></li>
+          <li><a href="pages/portal.html" class="nav-portal">Member Portal</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════ HERO SLIDER ═══ -->
+  <section class="hero-slider" id="hero-slider" aria-label="Featured research themes">
+
+    <!-- Slide 1 – African students -->
+    <div class="slide active" data-index="0">
+      <div class="slide-bg slide-bg-1"></div>
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <span class="slide-label">Education &amp; Community</span>
+        <h1 class="slide-heading">Researching education,<br/><em>language, and society</em><br/>across contexts.</h1>
+        <p class="slide-sub">INARELS connects scholars and communities through collaborative action research, project-based knowledge sharing, and global dialogue rooted in local realities.</p>
+        <div class="slide-ctas">
+          <a href="pages/projects.html" class="btn btn-gold">Explore Research Projects</a>
+          <a href="pages/researchers.html" class="btn btn-outline">Join the Network</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 – African city skyline -->
+    <div class="slide" data-index="1">
+      <div class="slide-bg slide-bg-2"></div>
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <span class="slide-label">Urban Transformation</span>
+        <h1 class="slide-heading">Where local knowledge<br/><em>meets global scholarship.</em></h1>
+        <p class="slide-sub">From Nairobi to Lagos, Accra to Johannesburg — our network bridges urban transformation with rigorous, community-grounded research.</p>
+        <div class="slide-ctas">
+          <a href="pages/projects.html" class="btn btn-gold">View Research Projects</a>
+          <a href="pages/about.html" class="btn btn-outline">About INARELS</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 – African map motif -->
+    <div class="slide" data-index="2">
+      <div class="slide-bg slide-bg-3"></div>
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <span class="slide-label">International Network</span>
+        <h1 class="slide-heading">A continent of inquiry.<br/><em>A world of collaboration.</em></h1>
+        <p class="slide-sub">INARELS spans research contexts across Africa and beyond, creating shared frameworks for action research that travels across borders and disciplines.</p>
+        <div class="slide-ctas">
+          <a href="pages/researchers.html" class="btn btn-gold">Meet the Researchers</a>
+          <a href="pages/projects.html" class="btn btn-outline">Browse Projects</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4 – Artistic / transformation -->
+    <div class="slide" data-index="3">
+      <div class="slide-bg slide-bg-4"></div>
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <span class="slide-label">New Narratives</span>
+        <h1 class="slide-heading">Painting a new picture<br/><em>of the world.</em></h1>
+        <p class="slide-sub">Action research is an act of imagination. INARELS supports scholars who dare to reimagine what knowledge, community, and possibility can look like.</p>
+        <div class="slide-ctas">
+          <a href="pages/about.html" class="btn btn-gold">Our Vision</a>
+          <a href="pages/researchers.html" class="btn btn-outline">Apply for Membership</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 5 – Research collaboration -->
+    <div class="slide" data-index="4">
+      <div class="slide-bg slide-bg-5"></div>
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <span class="slide-label">Collaborative Scholarship</span>
+        <h1 class="slide-heading">Research that belongs<br/><em>to the community.</em></h1>
+        <p class="slide-sub">From fieldwork to publications, INARELS researchers share methods, data, and discoveries in a structured, permission-aware collaboration environment.</p>
+        <div class="slide-ctas">
+          <a href="pages/portal.html" class="btn btn-gold">Member Portal</a>
+          <a href="pages/projects.html" class="btn btn-outline">Explore Projects</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="slider-controls">
+      <button class="slider-arrow arrow-prev" id="arrow-prev" aria-label="Previous slide">&#8592;</button>
+      <div class="slider-dots" id="slider-dots">
+        <button class="dot active" aria-label="Slide 1"></button>
+        <button class="dot" aria-label="Slide 2"></button>
+        <button class="dot" aria-label="Slide 3"></button>
+        <button class="dot" aria-label="Slide 4"></button>
+        <button class="dot" aria-label="Slide 5"></button>
+      </div>
+      <button class="slider-arrow arrow-next" id="arrow-next" aria-label="Next slide">&#8594;</button>
+    </div>
+
+    <div class="slider-progress-bar" id="slider-progress"></div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ WHAT INARELS DOES ═══ -->
+  <section class="what-section">
+    <div class="container">
+      <div class="section-intro">
+        <span class="section-kicker">What INARELS Does</span>
+        <h2>A research network built for<br/>impact, collaboration, and openness.</h2>
+      </div>
+
+      <div class="feature-cards">
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="12" cy="24" r="6" stroke="currentColor" stroke-width="2"/>
+              <circle cx="36" cy="12" r="6" stroke="currentColor" stroke-width="2"/>
+              <circle cx="36" cy="36" r="6" stroke="currentColor" stroke-width="2"/>
+              <line x1="18" y1="21" x2="30" y2="15" stroke="currentColor" stroke-width="2"/>
+              <line x1="18" y1="27" x2="30" y2="33" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3>International Research Collaboration</h3>
+          <p>Connects researchers working across different regions and contexts, enabling comparative and collaborative action research at an international scale.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="8" y="8" width="32" height="32" rx="3" stroke="currentColor" stroke-width="2"/>
+              <line x1="8" y1="18" x2="40" y2="18" stroke="currentColor" stroke-width="2"/>
+              <line x1="20" y1="8" x2="20" y2="40" stroke="currentColor" stroke-width="2"/>
+              <circle cx="14" cy="13" r="2" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3>Project-Based Knowledge Sharing</h3>
+          <p>Organizes research around clearly defined projects with rich public-facing pages including descriptions, publications, images, and project leader contact information.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M8 36 L8 16 L24 8 L40 16 L40 36" stroke="currentColor" stroke-width="2"/>
+              <rect x="18" y="24" width="12" height="12" stroke="currentColor" stroke-width="2"/>
+              <path d="M16 16 h16" stroke="currentColor" stroke-width="2"/>
+              <path d="M24 8 v8" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3>Public Scholarship &amp; Publications</h3>
+          <p>Allows visitors to explore the goals, publications, and people connected to each project — making INARELS research visible and accessible beyond institutional walls.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="10" y="14" width="28" height="22" rx="2" stroke="currentColor" stroke-width="2"/>
+              <path d="M18 14 v-4 a6 6 0 0 1 12 0 v4" stroke="currentColor" stroke-width="2"/>
+              <circle cx="24" cy="25" r="3" stroke="currentColor" stroke-width="2"/>
+              <path d="M24 28 v4" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3>Controlled Data Access</h3>
+          <p>Gives approved members access to project-specific materials through a login and permission system — keeping each dataset tied to its context, ownership, and project purpose.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ FEATURED PROJECTS ═══ -->
+  <section class="projects-section">
+    <div class="container">
+      <div class="section-intro">
+        <span class="section-kicker">Featured Research</span>
+        <h2>Projects Shaping Education,<br/>Language &amp; Society</h2>
+        <p class="section-desc">Browse a selection of INARELS projects spanning literacy education, teacher development, language policy, and community-based research across multiple regions.</p>
+      </div>
+
+      <div class="project-tabs-row" id="project-tabs" role="tablist">
+        <button class="ptab active" data-filter="all" role="tab" aria-selected="true">All Projects</button>
+        <button class="ptab" data-filter="education" role="tab" aria-selected="false">Education</button>
+        <button class="ptab" data-filter="language" role="tab" aria-selected="false">Language</button>
+        <button class="ptab" data-filter="history" role="tab" aria-selected="false">History</button>
+        <button class="ptab" data-filter="society" role="tab" aria-selected="false">Society</button>
+        <button class="ptab" data-filter="diaspora" role="tab" aria-selected="false">Diaspora</button>
+      </div>
+
+      <div class="project-grid" id="project-grid">
+
+        <article class="project-card" data-theme="education history">
+          <div class="project-card-img project-img-1">
+            <span class="project-status">Active</span>
+            <div class="project-tags">
+              <span class="tag">Education</span>
+              <span class="tag">History</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <h3>Historicizing History Education</h3>
+            <p>A comparative inquiry examining the forces responsible for the reduction and elimination of history curriculum in Nigeria, Ghana, Kenya, and Uganda.</p>
+            <div class="project-meta">
+              <span class="meta-item"><strong>Lead:</strong> Desmond Ikenna Odugu, Ph.D.</span>
+              <span class="meta-item"><strong>Region:</strong> West &amp; East Africa</span>
+            </div>
+            <div class="project-badges">
+              <span class="badge badge-pub">Publications</span>
+              <span class="badge badge-data">Data Access</span>
+            </div>
+            <a href="pages/project-historicizing-history-education.html" class="btn-project">View Project &rarr;</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-theme="language history society">
+          <div class="project-card-img project-img-2">
+            <span class="project-status">Active</span>
+            <div class="project-tags">
+              <span class="tag">Language</span>
+              <span class="tag">History</span>
+              <span class="tag">Society</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <h3>Language, Historical Literacies &amp; Civic Engagement</h3>
+            <p>A large-scale cross-cultural comparative program investigating language practices, historical literacies, and civic engagement in multilingual African societies. Initiated 2013.</p>
+            <div class="project-meta">
+              <span class="meta-item"><strong>Lead:</strong> Desmond Ikenna Odugu, Ph.D.</span>
+              <span class="meta-item"><strong>Region:</strong> Pan-African</span>
+            </div>
+            <div class="project-badges">
+              <span class="badge badge-pub">Publications</span>
+              <span class="badge badge-data">Data Access</span>
+              <span class="badge badge-mem">Member Access</span>
+            </div>
+            <a href="pages/project-language-historical-literacies.html" class="btn-project">View Project &rarr;</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-theme="education society diaspora">
+          <div class="project-card-img project-img-3">
+            <span class="project-status">Active</span>
+            <div class="project-tags">
+              <span class="tag">Education</span>
+              <span class="tag">Society</span>
+              <span class="tag">Diaspora</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <h3>Achievement Gap &amp; Intra-racial Dynamics (AGIRD)</h3>
+            <p>Explores immigration trends, socialization patterns, and academic achievement among immigrant and non-immigrant Black students in the United States.</p>
+            <div class="project-meta">
+              <span class="meta-item"><strong>Lead:</strong> Desmond Ikenna Odugu, Ph.D.</span>
+              <span class="meta-item"><strong>Region:</strong> USA / Midwest</span>
+            </div>
+            <div class="project-badges">
+              <span class="badge badge-pub">Publications</span>
+              <span class="badge badge-mem">Member Access</span>
+            </div>
+            <a href="pages/project-agird.html" class="btn-project">View Project &rarr;</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-theme="language education society">
+          <div class="project-card-img project-img-4">
+            <span class="project-status">Dissemination Phase</span>
+            <div class="project-tags">
+              <span class="tag">Language</span>
+              <span class="tag">Education</span>
+              <span class="tag">Society</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <h3>Language, Education, and Development</h3>
+            <p>A decade of Africa-wide fieldwork providing extensive empirical evidence of language's significance to educational and social change across eight countries.</p>
+            <div class="project-meta">
+              <span class="meta-item"><strong>Lead:</strong> Desmond Ikenna Odugu, Ph.D.</span>
+              <span class="meta-item"><strong>Region:</strong> Africa-wide + India</span>
+            </div>
+            <div class="project-badges">
+              <span class="badge badge-pub">Publications</span>
+              <span class="badge badge-data">Data Access</span>
+              <span class="badge badge-img">Field Images</span>
+              <span class="badge badge-mem">Member Access</span>
+            </div>
+            <a href="pages/project-language-education-development.html" class="btn-project">View Project &rarr;</a>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="projects-cta">
+        <a href="pages/projects.html" class="btn btn-gold">View All Research Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ NETWORK MAP TEASER ═══ -->
+  <section class="map-teaser-section">
+    <div class="container">
+      <div class="map-teaser-inner">
+        <div class="map-teaser-text">
+          <span class="section-kicker kicker-light">Global Reach</span>
+          <h2>A network rooted in Africa,<br/>connected to the world.</h2>
+          <p>INARELS projects span multiple continents, with a particular focus on African educational contexts. The network reflects an intergenerational and intercontinental model of collaborative scholarship, bringing together established researchers, emerging scholars, and community partners.</p>
+          <div class="map-stats">
+            <div class="stat-item">
+              <span class="stat-number">12+</span>
+              <span class="stat-label">Countries</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">30+</span>
+              <span class="stat-label">Researchers</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">8</span>
+              <span class="stat-label">Active Projects</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">50+</span>
+              <span class="stat-label">Publications</span>
+            </div>
+          </div>
+          <a href="pages/projects.html" class="btn btn-gold">Explore the Network</a>
+        </div>
+        <div class="map-teaser-visual">
+          <!-- Decorative SVG Africa map outline -->
+          <svg class="africa-map-svg" viewBox="0 0 340 420" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Stylized map of Africa showing INARELS network presence">
+            <path d="M130 20 L155 15 L180 20 L210 18 L225 35 L235 55 L240 75 L238 95 L245 115 L250 135 L255 160 L252 185 L258 210 L265 230 L270 255 L268 275 L260 295 L248 315 L232 332 L215 345 L200 355 L185 362 L170 368 L155 362 L138 350 L120 335 L105 318 L92 298 L82 278 L76 258 L74 238 L70 215 L68 190 L72 165 L78 142 L80 118 L82 96 L86 74 L95 55 L108 38 L118 26 Z" 
+                  stroke="#C9922A" stroke-width="2" fill="rgba(201,146,42,0.08)"/>
+            <!-- Network dots -->
+            <circle cx="148" cy="100" r="5" fill="#C9922A" opacity="0.9"/>
+            <circle cx="185" cy="130" r="4" fill="#C9922A" opacity="0.7"/>
+            <circle cx="165" cy="170" r="6" fill="#C9922A" opacity="1"/>
+            <circle cx="200" cy="200" r="4" fill="#C9922A" opacity="0.8"/>
+            <circle cx="135" cy="210" r="5" fill="#C9922A" opacity="0.9"/>
+            <circle cx="160" cy="250" r="4" fill="#C9922A" opacity="0.7"/>
+            <circle cx="190" cy="280" r="3" fill="#C9922A" opacity="0.6"/>
+            <circle cx="145" cy="290" r="5" fill="#C9922A" opacity="0.85"/>
+            <!-- Connection lines -->
+            <line x1="148" y1="100" x2="185" y2="130" stroke="#C9922A" stroke-width="1" opacity="0.4" stroke-dasharray="4,3"/>
+            <line x1="185" y1="130" x2="165" y2="170" stroke="#C9922A" stroke-width="1" opacity="0.4" stroke-dasharray="4,3"/>
+            <line x1="165" y1="170" x2="200" y2="200" stroke="#C9922A" stroke-width="1" opacity="0.4" stroke-dasharray="4,3"/>
+            <line x1="165" y1="170" x2="135" y2="210" stroke="#C9922A" stroke-width="1" opacity="0.4" stroke-dasharray="4,3"/>
+            <line x1="135" y1="210" x2="160" y2="250" stroke="#C9922A" stroke-width="1" opacity="0.4" stroke-dasharray="4,3"/>
+            <line x1="160" y1="250" x2="145" y2="290" stroke="#C9922A" stroke-width="1" opacity="0.4" stroke-dasharray="4,3"/>
+            <line x1="160" y1="250" x2="190" y2="280" stroke="#C9922A" stroke-width="1" opacity="0.4" stroke-dasharray="4,3"/>
+            <!-- Pulse rings on main nodes -->
+            <circle cx="165" cy="170" r="12" stroke="#C9922A" stroke-width="1" fill="none" opacity="0.4"/>
+            <circle cx="165" cy="170" r="20" stroke="#C9922A" stroke-width="0.5" fill="none" opacity="0.2"/>
+            <circle cx="145" cy="290" r="10" stroke="#C9922A" stroke-width="1" fill="none" opacity="0.35"/>
+          </svg>
+          <div class="map-region-labels">
+            <span class="region-label" style="top:24%; left:32%">West Africa</span>
+            <span class="region-label" style="top:40%; left:60%">East Africa</span>
+            <span class="region-label" style="top:58%; left:38%">Central Africa</span>
+            <span class="region-label" style="top:72%; left:52%">Southern Africa</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ JOIN CTA ═══ -->
+  <section class="join-section">
+    <div class="container">
+      <div class="join-inner">
+        <div class="join-text">
+          <span class="section-kicker kicker-gold">Join the Network</span>
+          <h2>Are you a researcher, emerging scholar, or community collaborator?</h2>
+          <p>INARELS welcomes established researchers, graduate students, and community partners whose work touches education, language, literacy, or society. Membership involves a brief review process — submit your bio and research description to begin.</p>
+          <ul class="join-list">
+            <li>Access to project-specific research data and materials</li>
+            <li>Collaboration tools and a shared member portal</li>
+            <li>Visibility through the INARELS researcher directory</li>
+            <li>Opportunities to lead or contribute to network projects</li>
+          </ul>
+          <a href="pages/researchers.html" class="btn btn-gold">Apply for Membership</a>
+        </div>
+        <div class="join-quote-block">
+          <blockquote>
+            <p>"Action research is not just a method — it is a commitment to the communities whose lives our work is meant to serve."</p>
+            <cite>— INARELS Network Principles</cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ FOOTER ═══ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">INARELS</span>
+        <p>International Network for Action Research on Education, Language and Society</p>
+        <p class="footer-disclaimer">INARELS is a research network platform designed to support international collaboration, project visibility, and controlled data sharing across education, language, and society. Access to project data may be limited by membership, approval status, project ownership, ethical requirements, or researcher permission.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pages/about.html">About</a></li>
+          <li><a href="pages/projects.html">Projects</a></li>
+          <li><a href="pages/researchers.html">Researchers</a></li>
+          <li><a href="pages/portal.html">Member Portal</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Research</h4>
+        <ul>
+          <li><a href="pages/projects.html">Browse Projects</a></li>
+          <li><a href="pages/researchers.html">Researcher Directory</a></li>
+          <li><a href="pages/researchers.html#join">Apply for Membership</a></li>
+          <li><a href="pages/portal.html">Member Login</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>For general enquiries about the INARELS network, membership, or research collaboration, please contact the network coordinator.</p>
+        <a href="mailto:contact@inarels.org" class="footer-email">contact@inarels.org</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 INARELS – International Network for Action Research on Education, Language and Society. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
