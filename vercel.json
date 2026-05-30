@@ -1,0 +1,23 @@
+{
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/about",       "destination": "/pages/about.html" },
+    { "source": "/projects",    "destination": "/pages/projects.html" },
+    { "source": "/researchers", "destination": "/pages/researchers.html" },
+    { "source": "/portal",      "destination": "/pages/portal.html" },
+    { "source": "/projects/historicizing-history-education", "destination": "/pages/project-historicizing-history-education.html" },
+    { "source": "/projects/language-historical-literacies",  "destination": "/pages/project-language-historical-literacies.html" },
+    { "source": "/projects/agird",                           "destination": "/pages/project-agird.html" },
+    { "source": "/projects/language-education-development",  "destination": "/pages/project-language-education-development.html" }
+  ],
+  "headers": [
+    {
+      "source": "/css/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/js/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    }
+  ]
+}
